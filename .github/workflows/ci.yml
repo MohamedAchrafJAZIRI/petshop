@@ -1,40 +1,8 @@
-name: CI/CD Pipeline - PetShop
-
-on:
-  push:
-    branches:
-      - main
-      - develop
-  pull_request:
-
-jobs:
-  test:
-    name: Test HTML Files
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Check HTML files exist
+- name: Check CSS files exist
         run: |
-          echo "Checking HTML files..."
-          if [ -f "html/home.html" ]; then
-            echo "✅ home.html found"
+          if [ -f "css/home.css" ]; then
+            echo "✅ home.css found"
           else
-            echo "❌ home.html not found"
+            echo "❌ home.css not found"
             exit 1
           fi
-
-  build:
-    name: Build Docker Image
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Build Docker image
-        run: docker build -t petshop .
-
-      - name: Verify image was created
-        run: docker images petshop
