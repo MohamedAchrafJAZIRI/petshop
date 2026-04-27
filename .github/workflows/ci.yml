@@ -2,7 +2,7 @@ name: CI/CD Pipeline - PetShop
 
 on:
   push:
-    branches: [ main, develop, feature-* ]
+    branches: [ main, develop, "feature-*" ]
   pull_request:
     branches: [ main, develop ]
 
@@ -10,15 +10,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      
-uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      
-name: Check CSS files exist
-      run: |
-        if [ -f "css/home.css" ]; then
-          echo "✅ home.css found"
-        else
-          echo "❌ home.css not found"
-          exit 1
-        fi
+      - name: Check CSS files exist
+        run: |
+          if [ -f "css/home.css" ]; then
+            echo "home.css found"
+          else
+            echo "home.css not found"
+            exit 1
+          fi
