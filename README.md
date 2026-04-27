@@ -131,4 +131,20 @@ petshop/
 
 ---
 
+## 🐳 Docker
+
+### Prérequis
+- Docker version 20.10+
+- Docker Compose version 2.0+
+
+### Lancer le projet avec Docker
+# Construire et démarrer
+docker-compose up
+
+# Accéder au site
+http://localhost:8080
+
+# Arrêter
+docker-compose down
+
 © 2026 PetShop. Tous droits réservés.

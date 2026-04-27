@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: petshop-final
+    ports:
+      - "8080:80"
+    volumes:
+      - ./html:/usr/share/nginx/html
+      - ./css:/usr/share/nginx/html/css
+      - ./img:/usr/share/nginx/html/img
+    restart: always
